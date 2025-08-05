@@ -59,7 +59,7 @@ export default function App() {
       />
     );
   } else if (showBoot) {
-    return <BootScreen />;
+    return <BootScreen onBootComplete={() => setShowBoot(false)} />;
   } else {
     return (
       <Login
