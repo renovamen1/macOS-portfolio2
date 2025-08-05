@@ -15,19 +15,24 @@ const BootScreen: React.FC<BootScreenProps> = ({ onBootComplete }) => {
       setProgress(prev => {
         if (prev >= 100) {
           clearInterval(interval);
-          // Add a slight delay before hiding the boot screen
           setTimeout(() => {
             setIsVisible(false);
             setTimeout(onBootComplete, 500); // Fade out duration
           }, 500);
           return 100;
         }
-        // Simulate realistic boot progress with variable speeds
-        const increment = Math.random() * 8 + 2; // Random increment between 2-10
+        const increment = Math.random() * 8 + 2;
         return Math.min(prev + increment, 100);
       });
-    }, 150); // Update every 150ms
-
+    }, 150);
+  
+    // Try to play boot sound automatically
+    const audio = new Audio("/music/mac-startup-sound.mp3");
+    audio.play().catch((e) => {
+      // Autoplay was prevented, optionally log or handle here
+      // console.log("Autoplay prevented:", e);
+    });
+  
     return () => clearInterval(interval);
   }, [onBootComplete]);
 
