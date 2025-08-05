@@ -11,7 +11,7 @@ const bear: BearData[] = [
         title: "About Me",
         file: "markdown/about-me.md",
         icon: "i-la:dragon",
-        excerpt: "Hey there! I'm a dragon lost in human world..."
+        excerpt: "DS undergrad | curious builder-learner "
       },
       {
         id: "github-stats",
