@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 
 import Desktop from "~/pages/Desktop";
 import Login from "~/pages/Login";
 import Boot from "~/pages/Boot";
+import BootScreen from './components/BootScreen/BootScreen';
 
 import "@unocss/reset/tailwind.css";
 import "uno.css";
@@ -15,6 +16,12 @@ export default function App() {
   const [booting, setBooting] = useState<boolean>(false);
   const [restart, setRestart] = useState<boolean>(false);
   const [sleep, setSleep] = useState<boolean>(false);
+  const [showBoot, setShowBoot] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowBoot(false), 3000); // 3 seconds
+    return () => clearTimeout(timer);
+  }, []);
 
   const shutMac = (e: React.MouseEvent): void => {
     e.stopPropagation();
@@ -51,6 +58,8 @@ export default function App() {
         restartMac={restartMac}
       />
     );
+  } else if (showBoot) {
+    return <BootScreen />;
   } else {
     return (
       <Login
