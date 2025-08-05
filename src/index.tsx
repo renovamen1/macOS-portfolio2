@@ -28,7 +28,8 @@ export default function App() {
     setRestart(false);
     setSleep(false);
     setLogin(false);
-    setBooting(true);
+    setBooting(true)
+    setShowBoot(true);
   };
 
   const restartMac = (e: React.MouseEvent): void => {
@@ -37,6 +38,7 @@ export default function App() {
     setSleep(false);
     setLogin(false);
     setBooting(true);
+    setShowBoot(true);
   };
 
   const sleepMac = (e: React.MouseEvent): void => {
