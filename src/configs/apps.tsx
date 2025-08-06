@@ -77,9 +77,9 @@ const apps: AppsData[] = [
     id: "twitter",
     title: "X",
     desktop: true,
-    width: 600,
-    height: 700,
-    img: "img/icons/x.svg",
+    width: 700,
+    height: 800,
+    img: "img/icons/x-icons.png",
     content: <Twitter />
   },
   {
