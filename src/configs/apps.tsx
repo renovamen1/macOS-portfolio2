@@ -1,5 +1,6 @@
 import { appBarHeight } from "~/utils";
 import type { AppsData } from "~/types";
+import Twitter from "~/components/apps/Twitter";
 
 const apps: AppsData[] = [
   {
@@ -71,6 +72,15 @@ const apps: AppsData[] = [
     desktop: true,
     img: "img/icons/terminal.png",
     content: <Terminal />
+  },
+  {
+    id: "twitter",
+    title: "X",
+    desktop: true,
+    width: 600,
+    height: 700,
+    img: "img/icons/x.svg",
+    content: <Twitter />
   },
   {
     id: "github",

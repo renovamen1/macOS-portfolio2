@@ -21,6 +21,7 @@ declare global {
   const Spotlight: typeof import('./components/Spotlight')['default']
   const Terminal: typeof import('./components/apps/Terminal')['default']
   const TopBar: typeof import('./components/menus/TopBar')['default']
+  const Twitter: typeof import('./components/apps/Twitter')['default']
   const Typora: typeof import('./components/apps/Typora')['default']
   const VSCode: typeof import('./components/apps/VSCode')['default']
   const WifiMenu: typeof import('./components/menus/WifiMenu')['default']
