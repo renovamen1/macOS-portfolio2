@@ -72,82 +72,184 @@ const Tweet = ({
 
 export default function Twitter() {
   return (
-    <div className="size-full bg-white dark:bg-black text-sm text-gray-800 dark:text-white select-none">
+    <div className="size-full bg-white dark:bg-black text-sm text-gray-800 dark:text-white select-none flex flex-col">
       {/* Header */}
-      <div className="h-48 bg-cover bg-center" style={{ backgroundImage: "url('img/ui/wallpaper.jpg')" }} />
-
-      {/* Profile Info */}
-      <div className="p-3">
-        <div className="flex justify-between">
-          <img
-            src="img/ui/ip.jpeg"
-            alt="profile"
-            className="size-32 rounded-full -mt-16 border-4 border-white dark:border-black"
-          />
-          <a href="https://x.com/Prab1n_" target="_blank" rel="noreferrer">
-            <button className="mt-2 px-4 py-1.5 rounded-full border border-gray-300 dark:border-gray-700 font-bold">
-              Follow
-            </button>
-          </a>
-        </div>
-
-        <div className="mt-2">
-          <div className="flex items-center">
-            <span className="text-xl font-bold">Prabin Thakur</span>
-            <VerifiedIcon />
-          </div>
-          <span className="text-gray-500">@Prab1n_</span>
-        </div>
-
-        <p className="mt-2">
-          curious builder-learner| DS undergard
-          <br />
-           ML| Agents | GenAI
-        </p>
-
-        <div className="flex space-x-4 mt-2 text-gray-500">
-          <span>
-            <span className="font-bold text-gray-900 dark:text-white">1337</span> Following
-          </span>
-          <span>
-            <span className="font-bold text-gray-900 dark:text-white">999K</span> Followers
-          </span>
-        </div>
+      <div className="h-12 flex items-center px-4 border-b border-gray-200 dark:border-gray-800 flex-shrink-0">
+        <h1 className="text-lg font-bold">Home</h1>
       </div>
 
-      {/* Tabs */}
-      <div className="flex justify-around border-b border-gray-200 dark:border-gray-800">
-        <div className="py-3 font-bold border-b-2 border-[#1d9bf0] text-[#1d9bf0]">Tweets</div>
-        <div className="py-3 text-gray-500">Replies</div>
-        <div className="py-3 text-gray-500">Media</div>
-        <div className="py-3 text-gray-500">Likes</div>
-      </div>
+      <div className="overflow-y-auto flex-grow no-scrollbar">
+        {/* Profile Info */}
+        <div className="p-3 border-b border-gray-200 dark:border-gray-800">
+            <div className="h-24 bg-cover bg-center" style={{ backgroundImage: "url('img/ui/wallpaper.jpg')" }} />
+            <div className="flex justify-between">
+            <img
+                src="img/ui/ip.jpeg"
+                alt="profile"
+                className="size-32 rounded-full -mt-16 border-4 border-white dark:border-black"
+            />
+            <a href="https://x.com/Prab1n_" target="_blank" rel="noreferrer">
+                <button className="mt-2 px-4 py-1.5 rounded-full border border-gray-300 dark:border-gray-700 font-bold">
+                Follow
+                </button>
+            </a>
+            </div>
 
-      {/* Tweets */}
-      <div className="overflow-y-auto">
+            <div className="mt-2">
+            <div className="flex items-center">
+                <span className="text-xl font-bold">Prabin Thakur</span>
+                <VerifiedIcon />
+            </div>
+            <span className="text-gray-500">@Prab1n_</span>
+            </div>
+
+            <p className="mt-2">
+            curious builder-learner| DS undergard
+            <br />
+            ML| Agents | GenAI
+            </p>
+
+            <div className="flex space-x-4 mt-2 text-gray-500">
+            <span>
+                <span className="font-bold text-gray-900 dark:text-white">1337</span> Following
+            </span>
+            <span>
+                <span className="font-bold text-gray-900 dark:text-white">999K</span> Followers
+            </span>
+            </div>
+        </div>
+
+        {/* Tabs */}
+        <div className="flex justify-around border-b border-gray-200 dark:border-gray-800 flex-shrink-0">
+            <div className="py-3 font-bold border-b-2 border-[#1d9bf0] text-[#1d9bf0]">Tweets</div>
+            <div className="py-3 text-gray-500">Replies</div>
+            <div className="py-3 text-gray-500">Media</div>
+            <div className="py-3 text-gray-500">Likes</div>
+        </div>
+
+        {/* Tweets */}
         <Tweet
-          avatar="img/ui/ip.jpeg"
-          name="Prabin Thakur"
-          handle="Prab1n_"
-          time="13h"
-          text="Just built a macOS clone in React! Check out the repo 💻"
-          comments="123"
-          retweets="456"
-          likes="7.8K"
-          views="99.1K"
+            avatar="img/ui/ip.jpeg"
+            name="Prabin Thakur"
+            handle="Prab1n_"
+            time="13h"
+            text="Just built a macOS clone in React! Check out the repo 💻"
+            comments="123"
+            retweets="456"
+            likes="7.8K"
+            views="99.1K"
+        />
+        <Tweet
+            avatar="img/ui/ip.jpeg"
+            name="Prabin Thakur"
+            handle="Prab1n_"
+            time="May 1"
+            text="Grok 4 is 🔥"
+            comments="24"
+            retweets="99"
+            likes="1.2K"
+            views="15.3K"
+        />
+        <Tweet
+            avatar="img/ui/ip.jpeg"
+            name="Prabin Thakur"
+            handle="Prab1n_"
+            time="Apr 20"
+            text="Just shipped a new feature for my project!"
+            comments="42"
+            retweets="12"
+            likes="321"
+            views="4.2K"
+        />
+        <Tweet
+            avatar="img/ui/ip.jpeg"
+            name="Prabin Thakur"
+            handle="Prab1n_"
+            time="Apr 1"
+            text="Working on something new and exciting!"
+            comments="101"
+            retweets="202"
+            likes="2.1K"
+            views="22.3K"
         />
         <Tweet
           avatar="img/ui/ip.jpeg"
           name="Prabin Thakur"
           handle="Prab1n_"
-          time="May 1"
-          text="Grok 4 is 🔥"
-          comments="24"
-          retweets="99"
-          likes="1.2K"
-          views="15.3K"
+          time="Mar 20"
+          text="This is another tweet!"
+          comments="11"
+          retweets="22"
+          likes="333"
+          views="4.4K"
         />
-      </div>
+        <Tweet
+          avatar="img/ui/ip.jpeg"
+          name="Prabin Thakur"
+          handle="Prab1n_"
+          time="Mar 1"
+          text="Hello World!"
+          comments="10"
+          retweets="20"
+          likes="2.0K"
+          views="22.0K"
+        />
+        <Tweet
+          avatar="img/ui/ip.jpeg"
+          name="Prabin Thakur"
+          handle="Prab1n_"
+          time="Feb 25"
+          text="Autonomous agents are the future."
+          comments="50"
+          retweets="100"
+          likes="5K"
+          views="50K"
+        />
+        <Tweet
+          avatar="img/ui/ip.jpeg"
+          name="Prabin Thakur"
+          handle="Prab1n_"
+          time="Feb 20"
+          text="The rate of progress in AI is astounding."
+          comments="45"
+          retweets="90"
+          likes="4.5K"
+          views="45K"
+        />
+        <Tweet
+          avatar="img/ui/ip.jpeg"
+          name="Prabin Thakur"
+          handle="Prab1n_"
+          time="Feb 15"
+          text="Excited to see what comes next for AI agents."
+          comments="40"
+          retweets="80"
+          likes="4K"
+          views="40K"
+        />
+        <Tweet
+          avatar="img/ui/ip.jpeg"
+          name="Prabin Thakur"
+          handle="Prab1n_"
+          time="Feb 10"
+          text="The potential of AI agents is limitless."
+          comments="35"
+          retweets="70"
+          likes="3.5K"
+          views="35K"
+        />
+        <Tweet
+          avatar="img/ui/ip.jpeg"
+          name="Prabin Thakur"
+          handle="Prab1n_"
+          time="Feb 5"
+          text="AI agents are changing the world."
+          comments="30"
+          retweets="60"
+          likes="3K"
+          views="30K"
+        />
+        </div>
     </div>
   );
 }
