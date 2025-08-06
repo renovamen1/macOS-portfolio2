@@ -80,9 +80,11 @@ export default function Twitter() {
             alt="profile"
             className="size-32 rounded-full -mt-16 border-4 border-white dark:border-black"
           />
-          <button className="mt-2 px-4 py-1.5 rounded-full border border-gray-300 dark:border-gray-700 font-bold">
-            Follow
-          </button>
+          <a href="https://x.com/prabincankod" target="_blank" rel="noreferrer">
+            <button className="mt-2 px-4 py-1.5 rounded-full border border-gray-300 dark:border-gray-700 font-bold">
+              Follow
+            </button>
+          </a>
         </div>
 
         <div className="mt-2">
