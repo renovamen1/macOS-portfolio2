@@ -1,6 +1,7 @@
 import { appBarHeight } from "~/utils";
 import type { AppsData } from "~/types";
 import Twitter from "~/components/apps/Twitter";
+import Linkedin from "~/components/apps/Linkedin";
 
 const apps: AppsData[] = [
   {
@@ -88,6 +89,15 @@ const apps: AppsData[] = [
     desktop: false,
     img: "img/icons/github.png",
     link: "https://github.com/Renovamen/playground-macos"
+  },
+  {
+    id: "linkedin",
+    title: "LinkedIn",
+    desktop: true,
+    width: 700,
+    height: 800,
+    img: "img/icons/linkedin.svg",
+    content: <Linkedin />
   }
 ];
 

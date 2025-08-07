@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import './BootScreen.scss';
+import React, { useState, useEffect } from "react";
+import "./BootScreen.scss";
 
 interface BootScreenProps {
   onBootComplete: () => void;
@@ -12,7 +12,7 @@ const BootScreen: React.FC<BootScreenProps> = ({ onBootComplete }) => {
   useEffect(() => {
     // Simulate boot progress
     const interval = setInterval(() => {
-      setProgress(prev => {
+      setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
           setTimeout(() => {
@@ -25,21 +25,21 @@ const BootScreen: React.FC<BootScreenProps> = ({ onBootComplete }) => {
         return Math.min(prev + increment, 100);
       });
     }, 150);
-  
+
     // Try to play boot sound automatically
     const audio = new Audio("/music/mac-startup-sound.mp3");
     audio.play().catch((e) => {
       // Autoplay was prevented, optionally log or handle here
       // console.log("Autoplay prevented:", e);
     });
-  
+
     return () => clearInterval(interval);
   }, [onBootComplete]);
 
   if (!isVisible) return null;
 
   return (
-    <div className={`boot-screen ${!isVisible ? 'boot-screen--hidden' : ''}`}>
+    <div className={`boot-screen ${!isVisible ? "boot-screen--hidden" : ""}`}>
       <div className="boot-screen__content">
         {/* Apple Logo */}
         <div className="boot-screen__logo">
@@ -54,7 +54,7 @@ const BootScreen: React.FC<BootScreenProps> = ({ onBootComplete }) => {
         {/* Progress Bar */}
         <div className="boot-screen__progress-container">
           <div className="boot-screen__progress-bar">
-            <div 
+            <div
               className="boot-screen__progress-fill"
               style={{ width: `${progress}%` }}
             />
@@ -62,9 +62,7 @@ const BootScreen: React.FC<BootScreenProps> = ({ onBootComplete }) => {
         </div>
 
         {/* Optional loading text */}
-        <div className="boot-screen__loading-text">
-          Starting up...
-        </div>
+        <div className="boot-screen__loading-text">Starting up...</div>
       </div>
     </div>
   );

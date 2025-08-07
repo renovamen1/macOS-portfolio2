@@ -4,7 +4,7 @@ import { createRoot } from "react-dom/client";
 import Desktop from "~/pages/Desktop";
 import Login from "~/pages/Login";
 import Boot from "~/pages/Boot";
-import BootScreen from './components/BootScreen/BootScreen';
+import BootScreen from "./components/BootScreen/BootScreen";
 
 import "@unocss/reset/tailwind.css";
 import "uno.css";
@@ -28,7 +28,7 @@ export default function App() {
     setRestart(false);
     setSleep(false);
     setLogin(false);
-    setBooting(true)
+    setBooting(true);
     setShowBoot(true);
   };
 

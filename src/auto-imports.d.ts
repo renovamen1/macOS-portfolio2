@@ -15,6 +15,7 @@ declare global {
   const DockItem: typeof import('./components/dock/DockItem')['default']
   const FaceTime: typeof import('./components/apps/FaceTime')['default']
   const Launchpad: typeof import('./components/Launchpad')['default']
+  const Linkedin: typeof import('./components/apps/Linkedin')['default']
   const MenuItem: typeof import('./components/menus/base')['MenuItem']
   const MenuItemGroup: typeof import('./components/menus/base')['MenuItemGroup']
   const Safari: typeof import('./components/apps/Safari')['default']
