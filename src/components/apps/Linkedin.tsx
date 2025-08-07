@@ -74,7 +74,7 @@ export default function Linkedin() {
                             alt="profile"
                             className="size-32 rounded-full -mt-16 border-4 border-white dark:border-black"
                         />
-                        <a href="https://www.linkedin.com/in/prabin-thakur-a85835247/" target="_blank" rel="noreferrer">
+                        <a href="https://www.linkedin.com/in/prabin-thakur-951773321/" target="_blank" rel="noreferrer">
                             <button className="mt-2 px-4 py-1.5 rounded-full border border-gray-300 dark:border-gray-700 font-bold">
                                 Connect
                             </button>
@@ -84,17 +84,27 @@ export default function Linkedin() {
                     <div className="mt-2">
                         <div className="flex items-center">
                             <span className="text-xl font-bold">Prabin Thakur</span>
+                            <span className="text-gray-500 ml-2">· <span className="inline">2nd</span></span>
                         </div>
-                        <span className="text-gray-500">DS @ inspiria | Builder-Learner | ML | Agents | GenAI</span>
+                        <span className="text-gray-500">DS @inspiria | ML | AI Agents</span>
+                        <div className="text-gray-500 text-sm">
+                            Kathmandu,Nepal · <a href="#" className="text-blue-600">Contact info</a>
+                        </div>
                     </div>
 
                     <div className="flex space-x-4 mt-2 text-gray-500">
                         <span>
-                            <span className="font-bold text-gray-900 dark:text-white">500+</span> Connections
+                            <span className="font-bold text-gray-900 dark:text-white">863</span> followers
                         </span>
                         <span>
-                            <span className="font-bold text-gray-900 dark:text-white">1,337</span> Followers
+                            <span className="font-bold text-gray-900 dark:text-white">500+</span> connections
                         </span>
+                    </div>
+
+                    <div className="flex items-center mt-2">
+                        <img src="img/ui/stevejobs.webp" alt="mutual connection" className="size-7 rounded-full border-2 border-white dark:border-gray-900" />
+                        <img src="img/ui/elon.webp" alt="mutual connection" className="-ml-2 size-7 rounded-full border-2 border-white dark:border-gray-900" />
+                        <span className="ml-2 text-gray-500 text-sm">Steve jobs, elon musk and 8 other mutual connections</span>
                     </div>
                 </div>
 
