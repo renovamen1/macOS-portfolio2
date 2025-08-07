@@ -23,6 +23,8 @@ const Post = ({
     text,
     likes,
     comments,
+    postImage,
+    caption,
 }: {
     avatar: string;
     name: string;
@@ -30,6 +32,8 @@ const Post = ({
     text: string;
     likes: string;
     comments: string;
+    postImage?: string;
+    caption?: string;
 }) => (
     <div className="p-3 border-b border-gray-200 dark:border-gray-800">
         <div className="flex items-center space-x-2">
@@ -40,6 +44,12 @@ const Post = ({
             </div>
         </div>
         <p className="text-gray-800 dark:text-gray-200 mt-2">{text}</p>
+        {postImage && (
+            <div className="mt-3 rounded-lg overflow-hidden">
+                <img src={postImage} alt="post image" className="w-full" />
+                {caption && <p className="text-gray-800 dark:text-gray-200 mt-2 p-2">{caption}</p>}
+            </div>
+        )}
         <div className="flex justify-between mt-3 text-gray-500 max-w-sm">
             <div className="flex items-center space-x-1">
                 <span className="i-icon-park-outline:like" />
@@ -116,22 +126,28 @@ export default function Linkedin() {
                     text="Excited to share that I've built a macOS clone using React! It was a great learning experience. #React #WebDev"
                     likes="1.2K"
                     comments="14"
+                    postImage="img/ui/macos-ss2.png"
+                    caption="My macOS clone built with React!"
                 />
                 <Post
                     avatar="img/ui/ip.jpeg"
                     name="Prabin Thakur"
                     time="1w"
                     text="The progress in Generative AI is mind-blowing. What are your favorite new tools and models? #AI #GenAI"
-                    likes="876"
-                    comments="112"
+                    likes="176"
+                    comments="11"
+                    postImage="img/ui/ai.png"
+                    caption="Generative AI is amazing!"
                 />
                 <Post
                     avatar="img/ui/ip.jpeg"
                     name="Prabin Thakur"
                     time="2w"
                     text="Just finished a deep dive into autonomous agents. The potential is huge! #AI #Agents"
-                    likes="543"
-                    comments="32"
+                    likes="54"
+                    comments="3"
+                    postImage="img/ui/n8n.webp"
+                    caption="Autonomous agents are the future."
                 />
             </div>
         </div>

@@ -78,8 +78,8 @@ const apps: AppsData[] = [
     id: "twitter",
     title: "X",
     desktop: true,
-    width: 700,
-    height: 800,
+    width: 410,
+    height: 600,
     img: "img/icons/xapp.svg",
     content: <Twitter />
   },
@@ -94,8 +94,8 @@ const apps: AppsData[] = [
     id: "linkedin",
     title: "LinkedIn",
     desktop: true,
-    width: 700,
-    height: 800,
+    width: 410,
+    height: 600,
     img: "img/icons/linkedin.svg",
     content: <Linkedin />
   }

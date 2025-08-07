@@ -16,6 +16,27 @@ const VerifiedIcon = () => (
   </svg>
 );
 
+const RetweetIcon = () => (
+  <svg className="w-5 h-5 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M17 1l4 4-4 4"/>
+    <path d="M3 11V9a4 4 0 014-4h14"/>
+    <path d="M7 23l-4-4 4-4"/>
+    <path d="M21 13v2a4 4 0 01-4 4H3"/>
+  </svg>
+);
+
+const CommentIcon = () => (
+  <svg className="w-5 h-5 text-gray-500 hover:text-blue-500 transition-colors" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.067c-4.49.1-8.183-3.51-8.183-8.01zm8.005-6c-3.317 0-6.005 2.69-6.005 6 0 3.37 2.77 6.08 6.138 6.01L12 16v2.24l5.493-3.04c1.858-1.03 3.007-2.98 3.007-5.09 0-3.42-2.827-6.13-6.129-6.13H9.756z"/>
+  </svg>
+);
+
+const ImpressionsIcon = () => (
+  <svg className="w-5 h-5 text-gray-500" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM4 21l.004-10H6V21H4zm9.248 0v-7h2v7h-2z"/>
+  </svg>
+);
+
 const Tweet = ({
   avatar,
   name,
@@ -50,11 +71,11 @@ const Tweet = ({
       <p className="text-gray-800 dark:text-gray-200">{text}</p>
       <div className="flex justify-between mt-3 text-gray-500 max-w-sm">
         <div className="flex items-center space-x-1">
-          <span className="i-icon-park-outline:comment" />
+          <CommentIcon />
           <span>{comments}</span>
         </div>
         <div className="flex items-center space-x-1">
-          <span className="i-icon-park-outline:retweet" />
+          <RetweetIcon />
           <span>{retweets}</span>
         </div>
         <div className="flex items-center space-x-1">
@@ -62,7 +83,7 @@ const Tweet = ({
           <span>{likes}</span>
         </div>
         <div className="flex items-center space-x-1">
-          <span className="i-icon-park-outline:chart-line" />
+          <ImpressionsIcon />
           <span>{views}</span>
         </div>
       </div>
@@ -114,11 +135,11 @@ export default function Twitter() {
 
           <div className="flex space-x-4 mt-2 text-gray-500">
             <span>
-              <span className="font-bold text-gray-900 dark:text-white">1337</span>{" "}
+              <span className="font-bold text-gray-900 dark:text-white">137</span>{" "}
               Following
             </span>
             <span>
-              <span className="font-bold text-gray-900 dark:text-white">999K</span>{" "}
+              <span className="font-bold text-gray-900 dark:text-white">5.7K</span>{" "}
               Followers
             </span>
           </div>
@@ -141,10 +162,10 @@ export default function Twitter() {
           handle="Prab1n_"
           time="13h"
           text="Just built a macOS clone in React! Check out the repo 💻"
-          comments="123"
-          retweets="456"
-          likes="7.8K"
-          views="99.1K"
+          comments="12"
+          retweets="4"
+          likes="1.3K"
+          views="9.7K"
         />
         <Tweet
           avatar="img/ui/ip.jpeg"
@@ -152,10 +173,10 @@ export default function Twitter() {
           handle="Prab1n_"
           time="May 1"
           text="Grok 4 is 🔥"
-          comments="24"
-          retweets="99"
-          likes="1.2K"
-          views="15.3K"
+          comments="2"
+          retweets="9"
+          likes="764"
+          views="5.3K"
         />
         <Tweet
           avatar="img/ui/ip.jpeg"
@@ -163,10 +184,10 @@ export default function Twitter() {
           handle="Prab1n_"
           time="Apr 20"
           text="Just shipped a new feature for my project!"
-          comments="42"
-          retweets="12"
-          likes="321"
-          views="4.2K"
+          comments="6"
+          retweets="1"
+          likes="203"
+          views="784"
         />
         <Tweet
           avatar="img/ui/ip.jpeg"
@@ -174,10 +195,10 @@ export default function Twitter() {
           handle="Prab1n_"
           time="Apr 1"
           text="Working on something new and exciting!"
-          comments="101"
-          retweets="202"
-          likes="2.1K"
-          views="22.3K"
+          comments="1"
+          retweets="0"
+          likes="21"
+          views="867"
         />
         <Tweet
           avatar="img/ui/ip.jpeg"
@@ -185,10 +206,10 @@ export default function Twitter() {
           handle="Prab1n_"
           time="Mar 20"
           text="This is another tweet!"
-          comments="11"
-          retweets="22"
-          likes="333"
-          views="4.4K"
+          comments="1"
+          retweets="0"
+          likes="3"
+          views="40"
         />
         <Tweet
           avatar="img/ui/ip.jpeg"
@@ -196,10 +217,10 @@ export default function Twitter() {
           handle="Prab1n_"
           time="Mar 1"
           text="Hello World!"
-          comments="10"
-          retweets="20"
-          likes="2.0K"
-          views="22.0K"
+          comments="1"
+          retweets="2"
+          likes="21"
+          views="811"
         />
         <Tweet
           avatar="img/ui/ip.jpeg"
@@ -207,10 +228,10 @@ export default function Twitter() {
           handle="Prab1n_"
           time="Feb 25"
           text="Autonomous agents are the future."
-          comments="50"
-          retweets="100"
-          likes="5K"
-          views="50K"
+          comments="5"
+          retweets="10"
+          likes="157"
+          views="5K"
         />
         <Tweet
           avatar="img/ui/ip.jpeg"
@@ -218,10 +239,10 @@ export default function Twitter() {
           handle="Prab1n_"
           time="Feb 20"
           text="The rate of progress in AI is astounding."
-          comments="45"
-          retweets="90"
-          likes="4.5K"
-          views="45K"
+          comments="4"
+          retweets="0"
+          likes="563"
+          views="1.3K"
         />
         <Tweet
           avatar="img/ui/ip.jpeg"
@@ -229,10 +250,10 @@ export default function Twitter() {
           handle="Prab1n_"
           time="Feb 15"
           text="Excited to see what comes next for AI agents."
-          comments="40"
-          retweets="80"
-          likes="4K"
-          views="40K"
+          comments="0"
+          retweets="0"
+          likes="40"
+          views="437"
         />
         <Tweet
           avatar="img/ui/ip.jpeg"
@@ -240,10 +261,10 @@ export default function Twitter() {
           handle="Prab1n_"
           time="Feb 10"
           text="The potential of AI agents is limitless."
-          comments="35"
-          retweets="70"
-          likes="3.5K"
-          views="35K"
+          comments="3"
+          retweets="0"
+          likes="37"
+          views="350"
         />
         <Tweet
           avatar="img/ui/ip.jpeg"
@@ -251,10 +272,10 @@ export default function Twitter() {
           handle="Prab1n_"
           time="Feb 5"
           text="AI agents are changing the world."
-          comments="30"
-          retweets="60"
-          likes="3K"
-          views="30K"
+          comments="0"
+          retweets="0"
+          likes="28"
+          views="304"
         />
       </div>
     </div>
