@@ -27,23 +27,29 @@ export default function AppleMenu({
         <MenuItem>About This Mac</MenuItem>
       </MenuItemGroup>
       <MenuItemGroup>
-        <MenuItem>System Preferences...</MenuItem>
-        <MenuItem>App Store...</MenuItem>
+        <MenuItem>System Settings…</MenuItem>
+        <MenuItem>App Store…</MenuItem>
       </MenuItemGroup>
       <MenuItemGroup>
         <MenuItem>Recent Items</MenuItem>
       </MenuItemGroup>
       <MenuItemGroup>
-        <MenuItem>Force Quit...</MenuItem>
+        <MenuItem shortcut="⌥⌘⎋">Force Quit…</MenuItem>
       </MenuItemGroup>
       <MenuItemGroup>
         <MenuItem onClick={sleep}>Sleep</MenuItem>
-        <MenuItem onClick={restart}>Restart...</MenuItem>
-        <MenuItem onClick={shut}>Shut Down...</MenuItem>
+        <MenuItem onClick={restart}>Restart…</MenuItem>
+        <MenuItem onClick={shut} danger>
+          Shut Down…
+        </MenuItem>
       </MenuItemGroup>
       <MenuItemGroup border={false}>
-        <MenuItem onClick={logout}>Lock Screen</MenuItem>
-        <MenuItem onClick={logout}>Log Out Xiaohan Zou...</MenuItem>
+        <MenuItem onClick={logout} shortcut="⌃⌘Q">
+          Lock Screen
+        </MenuItem>
+        <MenuItem onClick={logout} danger>
+          Log Out Xiaohan Zou…
+        </MenuItem>
       </MenuItemGroup>
     </div>
   );
