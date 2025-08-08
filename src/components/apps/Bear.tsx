@@ -59,22 +59,24 @@ const Highlighter = (dark: boolean): any => {
 
 const Sidebar = ({ cur, setMidBar }: SidebarProps) => {
   return (
-    <div text-white>
-      <div className="h-12 pr-3 hstack space-x-3 justify-end">
-        <span className="i-ic:baseline-cloud-off text-xl" />
-        <span className="i-akar-icons:settings-vertical text-xl" />
+    <div className="text-c-900 dark:text-c-100">
+      <div className="h-12 pr-3 hstack space-x-3 justify-end opacity-70">
+        <span className="i-ic:baseline-cloud-off text-lg" />
+        <span className="i-akar-icons:settings-vertical text-lg" />
       </div>
-      <ul>
+      <ul className="py-1">
         {bear.map((item, index) => (
           <li
             key={`bear-sidebar-${item.id}`}
-            className={`pl-6 h-8 hstack cursor-default ${
-              cur === index ? "bg-red-500" : "bg-transparent"
-            } ${cur === index ? "" : "hover:bg-gray-600"}`}
+            className={`mx-2 px-3 pl-6 h-9 hstack rounded-md cursor-default transition-colors ${
+              cur === index
+                ? "bg-blue-500 text-white"
+                : "text-c-900 dark:text-c-200 hover:bg-c-300/40 dark:hover:bg-c-300/25"
+            }`}
             onClick={() => setMidBar(item.md, index)}
           >
-            <span className={item.icon} />
-            <span className="ml-2">{item.title}</span>
+            <span className={`${item.icon} opacity-90`} />
+            <span className="ml-2 font-medium truncate">{item.title}</span>
           </li>
         ))}
       </ul>
@@ -84,22 +86,22 @@ const Sidebar = ({ cur, setMidBar }: SidebarProps) => {
 
 const Middlebar = ({ items, cur, setContent }: MiddlebarProps) => {
   return (
-    <ul>
+    <ul className="py-1">
       {items.map((item: BearMdData, index: number) => (
         <li
           key={`bear-midbar-${item.id}`}
-          className={`h-24 flex flex-col cursor-default border-l-2 ${
+          className={`mx-2 my-1 h-24 flex flex-col cursor-default rounded-lg border transition-colors backdrop-blur-sm ${
             cur === index
-              ? "border-red-500 bg-white dark:bg-gray-900"
-              : "border-transparent bg-transparent"
-          } hover:(bg-white dark:bg-gray-900)`}
+              ? "border-blue-500/70 bg-white/90 dark:bg-black/50 shadow"
+              : "border-transparent hover:bg-white/70 dark:hover:bg-black/40"
+          }`}
           onClick={() => setContent(item.id, item.file, index)}
         >
           <div className="h-8 mt-3 hstack">
             <div className="-mt-1 w-10 vstack text-c-500">
               <span className={item.icon} />
             </div>
-            <span className="relative flex-1 font-bold" text="gray-900 dark:gray-100">
+            <span className="relative flex-1 font-semibold text-c-900 dark:text-c-100">
               {item.title}
               {item.link && (
                 <a
@@ -113,7 +115,7 @@ const Middlebar = ({ items, cur, setContent }: MiddlebarProps) => {
               )}
             </span>
           </div>
-          <div className="flex-1 ml-10" p="b-2 r-1" text="sm c-500" border="b c-300">
+          <div className="flex-1 ml-10 pr-3 pb-2 text-sm leading-6 text-c-800 dark:text-c-300">
             {item.excerpt}
           </div>
         </li>
@@ -172,7 +174,7 @@ const Content = ({ contentID, contentURL }: ContentProps) => {
   }, [contentID, contentURL, fetchMarkdown]);
 
   return (
-    <div className="markdown w-2/3 mx-auto px-2 py-6 text-c-700">
+    <div className="markdown w-[min(58rem,92%)] mx-auto px-6 py-10 text-c-900 dark:text-c-100 leading-7">
       <ReactMarkdown
         remarkPlugins={[remarkGfm, remarkMath]}
         rehypePlugins={[
@@ -216,18 +218,18 @@ const Bear = () => {
   };
 
   return (
-    <div className="bear font-avenir flex h-full">
-      <div className="w-44 overflow-auto bg-gray-700">
+    <div className="bear font-avenir flex h-full bg-transparent">
+      <div className="w-52 overflow-auto border-r border-menu bg-c-200/70 dark:bg-black/35 backdrop-blur-xl">
         <Sidebar cur={state.curSidebar} setMidBar={setMidBar} />
       </div>
-      <div className="w-60 overflow-auto" bg="gray-50 dark:gray-800" border="r c-300">
+      <div className="w-72 overflow-auto border-r border-menu bg-white/90 dark:bg-black/30 backdrop-blur-xl">
         <Middlebar
           items={state.midbarList}
           cur={state.curMidbar}
           setContent={setContent}
         />
       </div>
-      <div className="flex-1 overflow-auto" bg="gray-50 dark:gray-800">
+      <div className="flex-1 overflow-auto bg-white/95 dark:bg-black/45 backdrop-blur-xl">
         <Content contentID={state.contentID} contentURL={state.contentURL} />
       </div>
     </div>
