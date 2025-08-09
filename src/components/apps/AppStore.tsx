@@ -19,7 +19,7 @@ interface AppStoreProps {
 }
 
 const SectionTitle = ({ title, subtitle }: { title: string; subtitle?: string }) => (
-  <div className="px-6 pt-6 pb-3">
+  <div className="px-6 pt-8 pb-4">
     <h2 className="text-2xl font-semibold text-c-800">{title}</h2>
     {subtitle && <p className="text-c-500 text-sm mt-1">{subtitle}</p>}
   </div>
@@ -72,21 +72,53 @@ const Tag = ({ children }: { children: React.ReactNode }) => (
   <span className="px-2 py-0.5 rounded-full bg-c-200 text-c-700 text-xs">{children}</span>
 );
 
+const ActionChip = ({ label, onClick }: { label: string; onClick?: () => void }) => (
+  <button
+    className="px-2.5 py-1 rounded-full text-xs border border-c-300/70 text-c-700 hover:bg-c-100 active:bg-c-200 transition"
+    onClick={onClick}
+  >
+    {label}
+  </button>
+);
+
+const Logo = ({ name, src }: { name: string; src: string }) => {
+  const [broken, setBroken] = useState(false);
+  const initial = name?.[0]?.toUpperCase() ?? "P";
+
+  if (broken || !src) {
+    return (
+      <div className="size-14 rounded-xl bg-gradient-to-br from-c-200 to-c-300 flex-center text-c-800 font-semibold">
+        {initial}
+      </div>
+    );
+  }
+  return (
+    <img
+      src={src}
+      alt={`${name} logo`}
+      className="size-full object-cover"
+      onError={() => setBroken(true)}
+    />
+  );
+};
+
 const AppTile = ({
   app,
   buttonLabel,
   disabled,
-  onButtonClick
+  onButtonClick,
+  actionVariant = "button"
 }: {
   app: AppTileData;
   buttonLabel?: string;
   disabled?: boolean;
   onButtonClick?: () => void;
+  actionVariant?: "button" | "chips";
 }) => (
-  <div className="group flex items-center justify-between px-6 py-4 hover:bg-c-100/70">
+  <div className="group flex items-center justify-between px-6 py-4 hover:bg-c-100/70 border-b border-c-200/60 last:border-none">
     <div className="flex items-center space-x-4">
       <div className="size-14 rounded-xl overflow-hidden bg-white shadow flex-center">
-        <img src={app.image} alt={app.name} className="size-full object-cover" />
+        <Logo name={app.name} src={app.image} />
       </div>
       <div className="flex flex-col">
         <span className="text-c-900 font-medium">{app.name}</span>
@@ -99,11 +131,19 @@ const AppTile = ({
       </div>
     </div>
     {app.actions && app.actions.length > 0 ? (
-      <div className="flex items-center gap-2">
-        {app.actions.map((a) => (
-          <GetButton key={a.label} label={a.label} onClick={() => window.open(a.link, "_blank")} />
-        ))}
-      </div>
+      actionVariant === "chips" ? (
+        <div className="flex items-center gap-2">
+          {app.actions.map((a) => (
+            <ActionChip key={a.label} label={a.label} onClick={() => window.open(a.link, "_blank")} />
+          ))}
+        </div>
+      ) : (
+        <div className="flex items-center gap-2">
+          {app.actions.map((a) => (
+            <GetButton key={a.label} label={a.label} onClick={() => window.open(a.link, "_blank")} />
+          ))}
+        </div>
+      )
     ) : (
       <GetButton label={buttonLabel} disabled={disabled} onClick={onButtonClick} />
     )}
@@ -133,11 +173,11 @@ const SidebarItem = ({
 );
 
 const HeroBanner = () => (
-  <div className="mx-6 mt-6 rounded-2xl overflow-hidden relative">
-    <div className="h-44 sm:h-60 w-full bg-gradient-to-br from-cyan-500 to-blue-600" />
+  <div className="mx-6 mt-6 rounded-3xl overflow-hidden relative">
+    <div className="h-44 sm:h-56 w-full bg-gradient-to-br from-cyan-400 to-blue-500" />
     <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end text-white">
       <div className="text-xs uppercase tracking-wide opacity-90">Showcase</div>
-      <div className="text-2xl sm:text-3xl font-semibold">Projects in Data Science & ML</div>
+      <div className="text-[22px] sm:text-3xl font-semibold">Projects in Data Science & ML</div>
       <div className="mt-2 text-white/85 max-w-2xl text-sm">
         Apps, websites, and machine learning models I've built as a DS/ML undergraduate.
       </div>
@@ -195,7 +235,7 @@ const myProjects: AppTileData[] = [
     name: "Personal Portfolio",
     subtitle: "Showcase and contact",
     category: "Project",
-    image: "img/icons/github.png",
+    image: "img/icons/launchpad/resume.png",
     link: "https://example.com/portfolio",
     type: "website",
     tags: ["React", "Vite", "UnoCSS"],
@@ -282,7 +322,7 @@ const mlModels: AppTileData[] = [
     name: "Object Detection (DETR)",
     subtitle: "End-to-end transformer detector",
     category: "Computer Vision",
-    image: "img/icons/appstore.svg",
+    image: "img/icons/launchpad/rl.png",
     type: "model",
     tags: ["PyTorch", "Transformers"],
     actions: [
@@ -296,7 +336,7 @@ const mlModels: AppTileData[] = [
     name: "Question Answering",
     subtitle: "BERT-based extractive QA",
     category: "NLP",
-    image: "img/icons/appstore.svg",
+    image: "img/icons/launchpad/meta.png",
     type: "model",
     tags: ["HuggingFace", "BERT"],
     actions: [
@@ -376,7 +416,7 @@ const AppStore = ({ width }: AppStoreProps) => {
 
       <main className="h-full overflow-y-auto">
         {/* Top Bar */}
-        <div className="h-12 sm:h-14 w-full flex items-center justify-between px-4 sm:px-6 border-b border-c-300/50 bg-c-white sticky top-0 z-10">
+        <div className="h-12 sm:h-14 w-full flex items-center justify-between px-4 sm:px-6 border-b border-c-200/60 bg-c-white sticky top-0 z-10">
           <div className="flex items-center space-x-3">
             {isNarrow && (
               <button
@@ -390,7 +430,7 @@ const AppStore = ({ width }: AppStoreProps) => {
             <div className="font-semibold text-c-900">{active}</div>
           </div>
           <div className="hidden sm:flex items-center space-x-2">
-            <div className="h-8 w-64 bg-c-200 rounded-md px-2 flex items-center">
+            <div className="h-8 w-64 bg-c-100 rounded-md px-2 flex items-center border border-c-200/60">
               <span className="i-heroicons:magnifying-glass-20-solid text-c-500 mr-1" />
               <input
                 className="flex-1 bg-transparent outline-none text-sm text-c-700 placeholder:text-c-500"
@@ -409,7 +449,7 @@ const AppStore = ({ width }: AppStoreProps) => {
               {filter === "all" && (
                 <>
                   <SectionTitle title="Featured" subtitle="A few highlights across apps, websites, and ML." />
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-0">
+                  <div className="mx-auto max-w-screen-lg grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-0">
                     {[...myProjects.slice(0, 1), ...mlModels.slice(0, 1), ...myWebsites.slice(0, 1)].map(
                       (app) => (
                         <AppTile key={app.id} app={app} />
@@ -422,13 +462,12 @@ const AppStore = ({ width }: AppStoreProps) => {
               {(filter === "all" || filter === "app") && (
                 <>
                   <SectionTitle title="My Projects" />
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-0">
+                  <div className="mx-auto max-w-screen-lg grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-0">
                     {myProjects.map((app) => (
                       <AppTile
                         key={app.id}
                         app={app}
-                        buttonLabel="Open"
-                        onButtonClick={() => app.link && window.open(app.link, "_blank")}
+                        actionVariant="chips"
                       />
                     ))}
                   </div>
@@ -438,7 +477,7 @@ const AppStore = ({ width }: AppStoreProps) => {
               {(filter === "all" || filter === "website") && (
                 <>
                   <SectionTitle title="My Websites" />
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-0">
+                  <div className="mx-auto max-w-screen-lg grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-0">
                     {myWebsites.map((app) => (
                       <AppTile
                         key={app.id}
@@ -454,7 +493,7 @@ const AppStore = ({ width }: AppStoreProps) => {
               {(filter === "all" || filter === "model") && (
                 <>
                   <SectionTitle title="ML Models" />
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-0">
+                  <div className="mx-auto max-w-screen-lg grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-0">
                     {mlModels.map((app) => (
                       <AppTile key={app.id} app={app} />
                     ))}
@@ -465,7 +504,7 @@ const AppStore = ({ width }: AppStoreProps) => {
               {(filter === "all" || filter === "notebook") && (
                 <>
                   <SectionTitle title="Notebooks" />
-                  <div className="pb-8 grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-0">
+                  <div className="pb-8 mx-auto max-w-screen-lg grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-0">
                     {notebooks.map((app) => (
                       <AppTile key={app.id} app={app} />
                     ))}
