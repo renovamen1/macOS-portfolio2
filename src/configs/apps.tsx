@@ -20,7 +20,7 @@ const apps: AppsData[] = [
     minWidth: 720,
     minHeight: 480,
     x: -40,
-    img: "/img/icons/prabin-studio.svg",
+    img: "/logo/ip2.png",
     content: <PrabinStudio />
   },
   {
