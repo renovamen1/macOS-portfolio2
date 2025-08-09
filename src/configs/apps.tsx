@@ -2,7 +2,7 @@ import { appBarHeight } from "~/utils";
 import type { AppsData } from "~/types";
 import Twitter from "~/components/apps/Twitter";
 import Linkedin from "~/components/apps/Linkedin";
-import AppStore from "~/components/apps/AppStore";
+import PrabinStudio from "~/components/apps/PrabinStudio";
 
 const apps: AppsData[] = [
   {
@@ -12,7 +12,7 @@ const apps: AppsData[] = [
     img: "img/icons/launchpad.png"
   },
   {
-    id: "appstore",
+    id: "prabinstudio",
     title: "Prabin's Studio",
     desktop: true,
     width: 980,
@@ -20,8 +20,8 @@ const apps: AppsData[] = [
     minWidth: 720,
     minHeight: 480,
     x: -40,
-    img: "logo/ip2.png",
-    content: <AppStore />
+    img: "/img/icons/prabin-studio.svg",
+    content: <PrabinStudio />
   },
   {
     id: "bear",

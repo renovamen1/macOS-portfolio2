@@ -14,7 +14,7 @@ interface AppTileData {
   actions?: { label: string; link: string }[];
 }
 
-interface AppStoreProps {
+interface PrabinStudioProps {
   width?: number;
 }
 
@@ -249,7 +249,7 @@ const myProjects: AppTileData[] = [
     name: "macOS Portfolio",
     subtitle: "This interactive site",
     category: "Project",
-    image: "img/icons/appstore.svg",
+    image: "/img/icons/prabinstudio.svg",
     link: "https://example.com/macos-portfolio",
     type: "website",
     tags: ["React", "Zustand"],
@@ -374,7 +374,7 @@ const notebooks: AppTileData[] = [
   }
 ];
 
-const AppStore = ({ width }: AppStoreProps) => {
+const PrabinStudio = ({ width }: PrabinStudioProps) => {
   const [active, setActive] = useState("Discover");
   const [filter, setFilter] = useState<ShowcaseType | "all">("all");
   const isNarrow = (width ?? 1024) < 820;
@@ -519,4 +519,4 @@ const AppStore = ({ width }: AppStoreProps) => {
   );
 };
 
-export default AppStore;
+export default PrabinStudio;
