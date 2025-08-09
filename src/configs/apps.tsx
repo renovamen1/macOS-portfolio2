@@ -13,7 +13,7 @@ const apps: AppsData[] = [
   },
   {
     id: "appstore",
-    title: "App Store",
+    title: "Prabin's Studio",
     desktop: true,
     width: 980,
     height: 640,
