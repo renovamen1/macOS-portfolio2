@@ -2,6 +2,7 @@ import { appBarHeight } from "~/utils";
 import type { AppsData } from "~/types";
 import Twitter from "~/components/apps/Twitter";
 import Linkedin from "~/components/apps/Linkedin";
+import AppStore from "~/components/apps/AppStore";
 
 const apps: AppsData[] = [
   {
@@ -9,6 +10,18 @@ const apps: AppsData[] = [
     title: "Launchpad",
     desktop: false,
     img: "img/icons/launchpad.png"
+  },
+  {
+    id: "appstore",
+    title: "App Store",
+    desktop: true,
+    width: 980,
+    height: 640,
+    minWidth: 720,
+    minHeight: 480,
+    x: -40,
+    img: "img/icons/app-store.svg",
+    content: <AppStore />
   },
   {
     id: "bear",
