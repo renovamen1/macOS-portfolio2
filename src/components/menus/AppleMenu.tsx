@@ -28,7 +28,7 @@ export default function AppleMenu({
       </MenuItemGroup>
       <MenuItemGroup>
         <MenuItem>System Settings…</MenuItem>
-        <MenuItem>App Store…</MenuItem>
+        <MenuItem>Prabin's Studio…</MenuItem>
       </MenuItemGroup>
       <MenuItemGroup>
         <MenuItem>Recent Items</MenuItem>

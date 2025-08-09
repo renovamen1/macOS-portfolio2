@@ -20,7 +20,7 @@ const apps: AppsData[] = [
     minWidth: 720,
     minHeight: 480,
     x: -40,
-    img: "img/icons/app-store.svg",
+    img: "logo/ip2.png",
     content: <AppStore />
   },
   {
@@ -41,7 +41,7 @@ const apps: AppsData[] = [
     width: 600,
     height: 580,
     y: -20,
-    img: "img/icons/typora.png",
+    img: "/img/icons/typora.png",
     content: <Typora />
   },
   {

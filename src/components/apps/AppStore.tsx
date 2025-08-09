@@ -224,7 +224,7 @@ const curatedApps: AppTileData[] = [
     subtitle: "A markdown editor, done right",
     category: "Productivity",
     rating: 4.4,
-    image: "img/icons/typora.png"
+    image: "/img/icons/typora.png"
   }
 ];
 
