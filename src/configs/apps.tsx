@@ -35,13 +35,13 @@ const apps: AppsData[] = [
     content: <Bear />
   },
   {
-    id: "typora",
-    title: "Typora",
+    id: "letter",
+    title: "Letter",
     desktop: true,
     width: 600,
     height: 580,
     y: -20,
-    img: "/img/icons/typora.png",
+    img: "/img/icons/mail.png",
     content: <Typora />
   },
   {
