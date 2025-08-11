@@ -15,37 +15,31 @@ const websites: WebsitesData = {
         id: "my-github",
         title: "Github",
         img: "img/sites/github.svg",
-        link: "https://github.com/Renovamen"
+        link: "https://github.com/renovamen1"
       },
       {
         id: "my-linkedin",
         title: "Linkedin",
         img: "img/sites/linkedin.svg",
-        link: "https://www.linkedin.com/in/xiaohan-zou"
+        link: "https://www.linkedin.com/in/prabin-thakur-951773321/"
       },
       {
         id: "my-google-scholar",
         title: "Scholar",
         img: "img/sites/google-scholar.svg",
-        link: "https://scholar.google.com/citations?user=RuW6xgMAAAAJ"
-      },
-      {
-        id: "my-zhihu",
-        title: "知乎",
-        img: "img/sites/zhihu.jpeg",
-        link: "https://www.zhihu.com/people/chao-neng-gui-su"
+        link: "https://scholar.google.com/"
       },
       {
         id: "my-twitter",
         title: "Twitter",
         img: "img/sites/twitter.svg",
-        link: "https://www.twitter.com/renovamen_zxh"
+        link: "https://www.twitter.com/Prab1n_"
       },
       {
         id: "my-email",
         title: "Email",
         img: "img/sites/gmail.svg",
-        link: "mailto:renovamenzxh@gmail.com"
+        link: "mailto:prabinthakur0101@gmail.com"
       }
     ]
   },
@@ -56,7 +50,7 @@ const websites: WebsitesData = {
         id: "github",
         title: "Github",
         img: "img/sites/github.svg",
-        link: "https://github.com/"
+        link: "https://github.com/renovamen1"
       },
       {
         id: "arxiv",
@@ -88,18 +82,7 @@ const websites: WebsitesData = {
         img: "img/sites/artstation.svg",
         link: "https://www.artstation.com//"
       },
-      {
-        id: "bilibili",
-        title: "Bilibili",
-        img: "img/sites/bilibili.svg",
-        link: "https://www.bilibili.com/"
-      },
-      {
-        id: "zhihu",
-        title: "知乎",
-        img: "img/sites/zhihu.jpeg",
-        link: "https://www.zhihu.com/"
-      },
+
       {
         id: "leetcode",
         title: "LeetCode",
@@ -131,22 +114,12 @@ const websites: WebsitesData = {
         link: "https://aideadlin.es/",
         inner: true
       },
-      {
-        id: "oh-my-cv",
-        title: "OhMyCV",
-        img: "https://ohmycv.app/apple-touch-icon.png",
-        link: "https://ohmycv.app/"
-      },
+
       {
         id: "steam",
         title: "Steam",
         img: "img/sites/steam.svg",
         link: "https://store.steampowered.com/"
-      },
-      {
-        id: "nazo",
-        title: "Nazo",
-        link: "https://nazo.one-story.cn"
       },
       {
         id: "svgomg",

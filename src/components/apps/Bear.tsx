@@ -31,7 +31,7 @@ interface BearState extends ContentProps {
   midbarList: BearMdData[];
 }
 
-const Highlighter = (dark: boolean): any => { 
+const Highlighter = (dark: boolean): any => {
   interface codeProps {
     node: any;
     inline: boolean;
@@ -143,9 +143,7 @@ const Middlebar = ({ items, cur, setContent }: MiddlebarProps) => {
                 {item.title}
               </h2>
             </div>
-            <p className="mt-2 text-sm text-c-800 dark:text-c-300">
-              {item.excerpt}
-            </p>
+            <p className="mt-2 text-sm text-c-800 dark:text-c-300">{item.excerpt}</p>
             <div className="mt-2 text-xs text-c-500">
               <span>{item.date}</span>
             </div>

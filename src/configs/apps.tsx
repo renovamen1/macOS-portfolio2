@@ -7,9 +7,9 @@ import PrabinStudio from "~/components/apps/PrabinStudio";
 const apps: AppsData[] = [
   {
     id: "launchpad",
-    title: "Launchpad",
+    title: "Apps",
     desktop: false,
-    img: "img/icons/launchpad.png"
+    img: "img/icons/app-store.svg"
   },
   {
     id: "prabinstudio",
