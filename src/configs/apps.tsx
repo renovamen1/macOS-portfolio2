@@ -24,14 +24,14 @@ const apps: AppsData[] = [
     content: <PrabinStudio />
   },
   {
-    id: "bear",
-    title: "Bear",
+    id: "portfolio",
+    title: "Portfolio",
     desktop: true,
     width: 860,
     height: 500,
     show: true,
     y: -40,
-    img: "img/icons/bear.png",
+    img: "img/icons/obsidian.svg",
     content: <Bear />
   },
   {
