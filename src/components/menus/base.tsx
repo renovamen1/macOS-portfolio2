@@ -21,10 +21,15 @@ const MenuItem = (props: MenuItemProps) => {
   const state = disabled
     ? "opacity-50 pointer-events-none"
     : danger
-    ? "text-red-600 hover:text-white hover:bg-red-500"
-    : "hover:text-white hover:bg-blue-500";
+      ? "text-red-600 hover:text-white hover:bg-red-500"
+      : "hover:text-white hover:bg-blue-500";
   return (
-    <li role="menuitem" aria-disabled={!!disabled} onClick={onClick} className={`${base} ${state}`}>
+    <li
+      role="menuitem"
+      aria-disabled={!!disabled}
+      onClick={onClick}
+      className={`${base} ${state}`}
+    >
       <span className="flex items-center gap-2">
         {checked && <span className="i-material-symbols:check-small" />}
         {children}

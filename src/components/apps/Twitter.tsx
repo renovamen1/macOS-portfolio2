@@ -17,23 +17,35 @@ const VerifiedIcon = () => (
 );
 
 const RetweetIcon = () => (
-  <svg className="w-5 h-5 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M17 1l4 4-4 4"/>
-    <path d="M3 11V9a4 4 0 014-4h14"/>
-    <path d="M7 23l-4-4 4-4"/>
-    <path d="M21 13v2a4 4 0 01-4 4H3"/>
+  <svg
+    className="w-5 h-5 text-gray-500"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M17 1l4 4-4 4" />
+    <path d="M3 11V9a4 4 0 014-4h14" />
+    <path d="M7 23l-4-4 4-4" />
+    <path d="M21 13v2a4 4 0 01-4 4H3" />
   </svg>
 );
 
 const CommentIcon = () => (
-  <svg className="w-5 h-5 text-gray-500 hover:text-blue-500 transition-colors" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.067c-4.49.1-8.183-3.51-8.183-8.01zm8.005-6c-3.317 0-6.005 2.69-6.005 6 0 3.37 2.77 6.08 6.138 6.01L12 16v2.24l5.493-3.04c1.858-1.03 3.007-2.98 3.007-5.09 0-3.42-2.827-6.13-6.129-6.13H9.756z"/>
+  <svg
+    className="w-5 h-5 text-gray-500 hover:text-blue-500 transition-colors"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+  >
+    <path d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.067c-4.49.1-8.183-3.51-8.183-8.01zm8.005-6c-3.317 0-6.005 2.69-6.005 6 0 3.37 2.77 6.08 6.138 6.01L12 16v2.24l5.493-3.04c1.858-1.03 3.007-2.98 3.007-5.09 0-3.42-2.827-6.13-6.129-6.13H9.756z" />
   </svg>
 );
 
 const ImpressionsIcon = () => (
   <svg className="w-5 h-5 text-gray-500" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM4 21l.004-10H6V21H4zm9.248 0v-7h2v7h-2z"/>
+    <path d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM4 21l.004-10H6V21H4zm9.248 0v-7h2v7h-2z" />
   </svg>
 );
 

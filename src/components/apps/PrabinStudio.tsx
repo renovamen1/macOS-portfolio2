@@ -20,7 +20,9 @@ interface PrabinStudioProps {
 
 const SectionTitle = ({ title, subtitle }: { title: string; subtitle?: string }) => (
   <div className="px-6 pt-10 pb-5">
-    <h2 className="text-[22px] sm:text-[28px] tracking-tight font-semibold text-c-900">{title}</h2>
+    <h2 className="text-[22px] sm:text-[28px] tracking-tight font-semibold text-c-900">
+      {title}
+    </h2>
     {subtitle && <p className="text-c-600 text-sm mt-1.5">{subtitle}</p>}
   </div>
 );
@@ -137,13 +139,21 @@ const AppTile = ({
         actionVariant === "chips" ? (
           <div className="flex items-center gap-2 flex-shrink-0">
             {app.actions.map((a) => (
-              <ActionChip key={a.label} label={a.label} onClick={() => window.open(a.link, "_blank")} />
+              <ActionChip
+                key={a.label}
+                label={a.label}
+                onClick={() => window.open(a.link, "_blank")}
+              />
             ))}
           </div>
         ) : (
           <div className="flex items-center gap-2 flex-shrink-0">
             {app.actions.map((a) => (
-              <GetButton key={a.label} label={a.label} onClick={() => window.open(a.link, "_blank")} />
+              <GetButton
+                key={a.label}
+                label={a.label}
+                onClick={() => window.open(a.link, "_blank")}
+              />
             ))}
           </div>
         )
@@ -184,7 +194,9 @@ const HeroBanner = () => (
     <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end">
       <div className="backdrop-blur-xl bg-black/10 rounded-2xl p-4 sm:p-5 text-white border border-white/15 shadow-lg">
         <div className="text-[10px] uppercase tracking-wide opacity-90">Showcase</div>
-        <div className="text-[22px] sm:text-3xl font-semibold tracking-tight">Projects in Data Science & ML</div>
+        <div className="text-[22px] sm:text-3xl font-semibold tracking-tight">
+          Projects in Data Science & ML
+        </div>
         <div className="mt-1.5 text-white/85 max-w-2xl text-sm">
           Apps, websites, and machine learning models I've built as a DS/ML undergraduate.
         </div>
@@ -292,9 +304,7 @@ const myWebsites: AppTileData[] = [
     link: "https://example.com/blog",
     type: "website",
     tags: ["Markdown", "SSG"],
-    actions: [
-      { label: "Read", link: "https://example.com/blog" }
-    ]
+    actions: [{ label: "Read", link: "https://example.com/blog" }]
   },
   {
     id: "linkedin",
@@ -305,9 +315,7 @@ const myWebsites: AppTileData[] = [
     link: "https://linkedin.com/in/your-handle",
     type: "website",
     tags: ["Career"],
-    actions: [
-      { label: "Open", link: "https://linkedin.com/in/your-handle" }
-    ]
+    actions: [{ label: "Open", link: "https://linkedin.com/in/your-handle" }]
   },
   {
     id: "x",
@@ -318,9 +326,7 @@ const myWebsites: AppTileData[] = [
     link: "https://x.com/your-handle",
     type: "website",
     tags: ["Social"],
-    actions: [
-      { label: "Follow", link: "https://x.com/your-handle" }
-    ]
+    actions: [{ label: "Follow", link: "https://x.com/your-handle" }]
   }
 ];
 
@@ -335,7 +341,7 @@ const mlModels: AppTileData[] = [
     tags: ["PyTorch", "Transformers"],
     actions: [
       { label: "Demo", link: "https://example.com/detr-demo" },
-      { label: "Code", link: "https://github.com/your-handle/detr" },
+      { label: "Code", link: "https://github.com/your-handle/detr" }
     ]
   },
   {
@@ -375,9 +381,7 @@ const notebooks: AppTileData[] = [
     image: "img/icons/launchpad/notebook.png",
     type: "notebook",
     tags: ["LLM", "Prompt Engineering"],
-    actions: [
-      { label: "View", link: "https://nbviewer.org/your-llm-notebook" }
-    ]
+    actions: [{ label: "View", link: "https://nbviewer.org/your-llm-notebook" }]
   }
 ];
 
@@ -403,10 +407,15 @@ const PrabinStudio = ({ width }: PrabinStudioProps) => {
   const filteredNotebooks = notebooks.filter(matchesQuery);
 
   return (
-    <div className="w-full h-full bg-c-white text-c-800 grid" style={{ gridTemplateColumns: isNarrow ? "1fr" : "260px 1fr" }}>
+    <div
+      className="w-full h-full bg-c-white text-c-800 grid"
+      style={{ gridTemplateColumns: isNarrow ? "1fr" : "260px 1fr" }}
+    >
       {!isNarrow && (
         <aside className="h-full border-r border-c-300/40 p-3 bg-c-50/70 dark:bg-c-800/40 backdrop-blur-xl">
-          <div className="px-2 pb-2 text-xs uppercase tracking-wide text-c-500">Prabin's Studio</div>
+          <div className="px-2 pb-2 text-xs uppercase tracking-wide text-c-500">
+            Prabin's Studio
+          </div>
           <div className="space-y-1">
             {[
               { label: "Overview", icon: "i-heroicons:sparkles-20-solid" },
@@ -474,17 +483,26 @@ const PrabinStudio = ({ width }: PrabinStudioProps) => {
         <div>
           {filter === "all" && <HeroBanner />}
 
-          {(filter === "all" || filter === "app" || filter === "website" || filter === "model" || filter === "notebook") && (
+          {(filter === "all" ||
+            filter === "app" ||
+            filter === "website" ||
+            filter === "model" ||
+            filter === "notebook") && (
             <>
               {filter === "all" && (
                 <>
-                  <SectionTitle title="Featured" subtitle="A few highlights across apps, websites, and ML." />
+                  <SectionTitle
+                    title="Featured"
+                    subtitle="A few highlights across apps, websites, and ML."
+                  />
                   <div className="mx-auto max-w-screen-lg grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {[...filteredProjects.slice(0, 1), ...filteredModels.slice(0, 1), ...filteredWebsites.slice(0, 1)].map(
-                      (app) => (
-                        <AppTile key={app.id} app={app} />
-                      )
-                    )}
+                    {[
+                      ...filteredProjects.slice(0, 1),
+                      ...filteredModels.slice(0, 1),
+                      ...filteredWebsites.slice(0, 1)
+                    ].map((app) => (
+                      <AppTile key={app.id} app={app} />
+                    ))}
                   </div>
                 </>
               )}
@@ -493,13 +511,11 @@ const PrabinStudio = ({ width }: PrabinStudioProps) => {
                 <>
                   <SectionTitle title="My Projects" />
                   <div className="mx-auto max-w-screen-lg grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {(filter === "all" ? filteredProjects : filteredProjects).map((app) => (
-                      <AppTile
-                        key={app.id}
-                        app={app}
-                        actionVariant="chips"
-                      />
-                    ))}
+                    {(filter === "all" ? filteredProjects : filteredProjects).map(
+                      (app) => (
+                        <AppTile key={app.id} app={app} actionVariant="chips" />
+                      )
+                    )}
                   </div>
                 </>
               )}
@@ -508,14 +524,18 @@ const PrabinStudio = ({ width }: PrabinStudioProps) => {
                 <>
                   <SectionTitle title="My Websites" />
                   <div className="mx-auto max-w-screen-lg grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {(filter === "all" ? filteredWebsites : filteredWebsites).map((app) => (
-                      <AppTile
-                        key={app.id}
-                        app={app}
-                        buttonLabel="Open"
-                        onButtonClick={() => app.link && window.open(app.link, "_blank")}
-                      />
-                    ))}
+                    {(filter === "all" ? filteredWebsites : filteredWebsites).map(
+                      (app) => (
+                        <AppTile
+                          key={app.id}
+                          app={app}
+                          buttonLabel="Open"
+                          onButtonClick={() =>
+                            app.link && window.open(app.link, "_blank")
+                          }
+                        />
+                      )
+                    )}
                   </div>
                 </>
               )}
@@ -525,9 +545,14 @@ const PrabinStudio = ({ width }: PrabinStudioProps) => {
                   <SectionTitle title="ML Models" />
                   <div className="mx-auto max-w-screen-lg grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {(filter === "all" ? filteredModels : filteredModels).map((app) => {
-                      const filteredActions = (app.actions ?? []).filter(a => /^(demo|code)$/i.test(a.label));
+                      const filteredActions = (app.actions ?? []).filter((a) =>
+                        /^(demo|code)$/i.test(a.label)
+                      );
                       return (
-                        <AppTile key={app.id} app={{ ...app, actions: filteredActions }} />
+                        <AppTile
+                          key={app.id}
+                          app={{ ...app, actions: filteredActions }}
+                        />
                       );
                     })}
                   </div>
@@ -538,12 +563,19 @@ const PrabinStudio = ({ width }: PrabinStudioProps) => {
                 <>
                   <SectionTitle title="Notebooks" />
                   <div className="pb-8 mx-auto max-w-screen-lg grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {(filter === "all" ? filteredNotebooks : filteredNotebooks).map((app) => {
-                      const filteredActions = (app.actions ?? []).filter(a => /^(demo|code)$/i.test(a.label));
-                      return (
-                        <AppTile key={app.id} app={{ ...app, actions: filteredActions }} />
-                      );
-                    })}
+                    {(filter === "all" ? filteredNotebooks : filteredNotebooks).map(
+                      (app) => {
+                        const filteredActions = (app.actions ?? []).filter((a) =>
+                          /^(demo|code)$/i.test(a.label)
+                        );
+                        return (
+                          <AppTile
+                            key={app.id}
+                            app={{ ...app, actions: filteredActions }}
+                          />
+                        );
+                      }
+                    )}
                   </div>
                 </>
               )}

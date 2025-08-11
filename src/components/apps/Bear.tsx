@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
@@ -30,7 +31,7 @@ interface BearState extends ContentProps {
   midbarList: BearMdData[];
 }
 
-const Highlighter = (dark: boolean): any => {
+const Highlighter = (dark: boolean): any => { 
   interface codeProps {
     node: any;
     inline: boolean;
@@ -41,15 +42,36 @@ const Highlighter = (dark: boolean): any => {
   return {
     code({ node, inline, className, children, ...props }: codeProps) {
       const match = /language-(\w+)/.exec(className || "");
+      const [copied, setCopied] = useState(false);
+
+      const handleCopy = () => {
+        navigator.clipboard.writeText(String(children));
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      };
+
       return !inline && match ? (
-        <SyntaxHighlighter
-          style={dark ? dracula : prism}
-          language={match[1]}
-          PreTag="div"
-          {...props}
-        >
-          {String(children).replace(/\n$/, "")}
-        </SyntaxHighlighter>
+        <div className="relative group">
+          <SyntaxHighlighter
+            style={dark ? dracula : prism}
+            language={match[1]}
+            PreTag="div"
+            {...props}
+          >
+            {String(children).replace(/\n$/, "")}
+          </SyntaxHighlighter>
+          <button
+            className="absolute top-2 right-2 p-1 text-white bg-gray-700 rounded-md hover:bg-gray-600 transition-opacity duration-200 opacity-0 group-hover:opacity-100"
+            onClick={handleCopy}
+          >
+            <span className="sr-only">Copy to clipboard</span>
+            {copied ? (
+              <span className="i-feather:check text-blue-400" />
+            ) : (
+              <span className="i-feather:copy" />
+            )}
+          </button>
+        </div>
       ) : (
         <code className={className}>{children}</code>
       );
@@ -60,18 +82,21 @@ const Highlighter = (dark: boolean): any => {
 const Sidebar = ({ cur, setMidBar }: SidebarProps) => {
   return (
     <div className="text-c-900 dark:text-c-100">
-      <div className="h-12 pr-3 hstack space-x-3 justify-end opacity-70">
-        <span className="i-ic:baseline-cloud-off text-lg" />
-        <span className="i-akar-icons:settings-vertical text-lg" />
+      <div className="h-12 pr-3 flex items-center justify-between">
+        <h1 className="text-lg font-bold pl-4">Notes</h1>
+        <div className="flex items-center space-x-3 opacity-70">
+          <span className="i-feather:cloud-off text-lg" />
+          <span className="i-feather:settings text-lg" />
+        </div>
       </div>
       <ul className="py-1">
         {bear.map((item, index) => (
           <li
             key={`bear-sidebar-${item.id}`}
-            className={`mx-2 px-3 pl-6 h-9 hstack rounded-md cursor-default transition-colors ${
+            className={`mx-2 px-3 pl-6 h-9 flex items-center rounded-md cursor-default transition-colors ${
               cur === index
                 ? "bg-blue-500 text-white"
-                : "text-c-900 dark:text-c-200 hover:bg-c-300/40 dark:hover:bg-c-300/25"
+                : "text-c-900 dark:text-c-200 hover:bg-gray-200 dark:hover:bg-gray-700"
             }`}
             onClick={() => setMidBar(item.md, index)}
           >
@@ -85,42 +110,49 @@ const Sidebar = ({ cur, setMidBar }: SidebarProps) => {
 };
 
 const Middlebar = ({ items, cur, setContent }: MiddlebarProps) => {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredItems = items.filter((item) =>
+    item.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
-    <ul className="py-1">
-      {items.map((item: BearMdData, index: number) => (
-        <li
-          key={`bear-midbar-${item.id}`}
-          className={`mx-2 my-1 h-24 flex flex-col cursor-default rounded-lg border transition-colors backdrop-blur-sm ${
-            cur === index
-              ? "border-blue-500/70 bg-white/90 dark:bg-black/50 shadow"
-              : "border-transparent hover:bg-white/70 dark:hover:bg-black/40"
-          }`}
-          onClick={() => setContent(item.id, item.file, index)}
-        >
-          <div className="h-8 mt-3 hstack">
-            <div className="-mt-1 w-10 vstack text-c-500">
-              <span className={item.icon} />
+    <div className="flex flex-col h-full">
+      <div className="p-4">
+        <input
+          type="text"
+          placeholder="Search notes..."
+          className="w-full px-3 py-2 text-sm bg-gray-100 dark:bg-gray-800 rounded-md focus:outline-none"
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
+      <ul className="flex-1 overflow-y-auto">
+        {filteredItems.map((item: BearMdData, index: number) => (
+          <li
+            key={`bear-midbar-${item.id}`}
+            className={`mx-2 my-1 p-3 cursor-default rounded-lg border transition-colors backdrop-blur-sm ${
+              cur === index
+                ? "border-blue-500/70 bg-white/90 dark:bg-black/50 shadow"
+                : "border-transparent hover:bg-white/70 dark:hover:bg-black/40"
+            }`}
+            onClick={() => setContent(item.id, item.file, index)}
+          >
+            <div className="flex items-center">
+              <span className={`${item.icon} text-xl text-c-500`} />
+              <h2 className="ml-3 font-semibold text-c-900 dark:text-c-100">
+                {item.title}
+              </h2>
             </div>
-            <span className="relative flex-1 font-semibold text-c-900 dark:text-c-100">
-              {item.title}
-              {item.link && (
-                <a
-                  pos="absolute top-1 right-4"
-                  href={item.link}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <span className="i-ant-design:link-outlined text-c-500" />
-                </a>
-              )}
-            </span>
-          </div>
-          <div className="flex-1 ml-10 pr-3 pb-2 text-sm leading-6 text-c-800 dark:text-c-300">
-            {item.excerpt}
-          </div>
-        </li>
-      ))}
-    </ul>
+            <p className="mt-2 text-sm text-c-800 dark:text-c-300">
+              {item.excerpt}
+            </p>
+            <div className="mt-2 text-xs text-c-500">
+              <span>{item.date}</span>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
@@ -174,7 +206,7 @@ const Content = ({ contentID, contentURL }: ContentProps) => {
   }, [contentID, contentURL, fetchMarkdown]);
 
   return (
-    <div className="markdown w-[min(58rem,92%)] mx-auto px-6 py-10 text-c-900 dark:text-c-100 leading-7">
+    <div className="prose dark:prose-invert w-[min(58rem,92%)] mx-auto px-6 py-10 leading-7">
       <ReactMarkdown
         remarkPlugins={[remarkGfm, remarkMath]}
         rehypePlugins={[
