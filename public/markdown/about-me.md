@@ -4,24 +4,27 @@
 
 
 
-Hello! I'm **Prabin Thakur**, a Data Science student from the department of Computer Application at MAKAUT.
+Hello! I'm **Prabin Thakur**, a Data Science undergrad from the department of Computer Application at MAKAUT.
+
+
 Researching on AI solutions for inventory,agriculture and services management. 
-\n
 
 
 
-### Research Interests
+
 
 My primary focus areas include:
-- **Machine Learning** - Building intelligent systems that learn from data
-- **Generative AI** - Exploring the creative potential of artificial intelligence
-- **AI Agents** - Developing autonomous systems that can interact and make decisions
+- **Machine Learning** - Building intelligent systems with SVM,MLP,CNN and XGboost.
+- **Generative AI** - Exploring the creative potential of open as well proprietary multimodals.
+- **AI Agents** - Developing,intergating and optimizing autonomous systems to improve workflows.  
+
+
 
 ### Current Goals
 
 Not actively seeking any job role for now  but might consider  **research internship for Summer 2025** and am open to collaborate on exciting research projects. If you're working on something interesting in ML, Gen-AI, or AI agents, lets connect!
 
-## Contact Information
+
 
 Feel free to reach out through any of these channels:
 
