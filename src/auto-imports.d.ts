@@ -18,7 +18,10 @@ declare global {
   const Linkedin: typeof import('./components/apps/Linkedin')['default']
   const MenuItem: typeof import('./components/menus/base')['MenuItem']
   const MenuItemGroup: typeof import('./components/menus/base')['MenuItemGroup']
+<<<<<<< Updated upstream
   const Portfolio: typeof import('./components/apps/Portfolio')['default']
+=======
+>>>>>>> Stashed changes
   const PrabinStudio: typeof import('./components/apps/PrabinStudio')['default']
   const Safari: typeof import('./components/apps/Safari')['default']
   const Spotlight: typeof import('./components/Spotlight')['default']
