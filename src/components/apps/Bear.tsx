@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
@@ -8,6 +8,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula, prism } from "react-syntax-highlighter/dist/esm/styles/prism";
 import bear from "~/configs/bear";
 import type { BearMdData } from "~/types";
+import { useStore } from "~/stores";
 
 interface ContentProps {
   contentID: string;
@@ -203,6 +204,13 @@ const Content = ({ contentID, contentURL }: ContentProps) => {
     fetchMarkdown(contentID, contentURL);
   }, [contentID, contentURL, fetchMarkdown]);
 
+  const customRenderers = {
+    h1: ({...props}) => <h1 style={{color: 'grey'}} {...props} />,
+    h2: ({...props}) => <h2 style={{color: 'black'}} {...props} />,
+    a: ({...props}) => <a style={{color: 'red'}} {...props} />,
+    strong: ({...props}) => <strong style={{color: 'blue'}} {...props} />,
+  };
+
   return (
     <div className="prose dark:prose-invert w-[min(58rem,92%)] mx-auto px-6 py-10 leading-7">
       <ReactMarkdown
@@ -211,7 +219,7 @@ const Content = ({ contentID, contentURL }: ContentProps) => {
           rehypeKatex,
           [rehypeExternalLinks, { target: "_blank", rel: "noopener noreferrer" }]
         ]}
-        components={Highlighter(dark as boolean)}
+        components={{...Highlighter(dark as boolean), ...customRenderers}}
       >
         {storeMd[contentID]}
       </ReactMarkdown>

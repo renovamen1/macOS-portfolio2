@@ -20,9 +20,9 @@ My primary focus areas include:
 
 
 
-### Current Goals
+**Current Goals**
 
-Not actively seeking any job role for now  but might consider  **research internship for Summer 2025** and am open to collaborate on exciting research projects. If you're working on something interesting in ML, Gen-AI, or AI agents, lets connect!
+Not actively seeking any job role for now  but might consider  **research internship for winter 2025** and am open to collaborate on exciting research projects. If you're working on something interesting in ML, Gen-AI, or AI agents, lets connect!
 
 
 
@@ -38,7 +38,7 @@ Feel free to reach out through any of these channels:
 
 
 
-**Dream**
+## My Dream
 ```javascript
 while(sleeping) {
     money++;
