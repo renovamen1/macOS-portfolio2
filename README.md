@@ -1,63 +1,75 @@
-# playground-macos
+# macOS-portfolio2
 
-My portfolio website simulating macOS's GUI: https://portfolio.zxh.me
+A stunning, interactive portfolio website that beautifully mimics the macOS GUI.
 
-Powered by [React](https://reactjs.org/) + [Zustand](https://zustand-demo.pmnd.rs/) + [UnoCSS](https://uno.antfu.me/) + [TypeScript](https://www.typescriptlang.org/) + [Vite](https://vitejs.dev/).
+**Live Demo:** [Your portfolio URL here](https://prabint.com)
 
-![light mode](./public/screenshots/light.png)
-![dark mode](./public/screenshots/dark.png)
+![desktop1](/public/img/ui/desktop.png)
+![desktop2](/public/img/ui/desktop-extended.png)
 
 
-&nbsp;
 
-## Usage
+## About
 
-Clone the repo and install dependencies:
+This project is a web-based portfolio designed to look and feel like a macOS desktop. It's built with modern web technologies to create a unique and engaging user experience.
 
-```bash
-pnpm install
-```
 
-Start dev server (with hot reloading):
+## Tech Stack
+
+*   **React:** A JavaScript library for building user interfaces.
+*   **TypeScript:** A typed superset of JavaScript that compiles to plain JavaScript.
+*   **Vite:** A fast build tool and development server.
+*   **Zustand:** A small, fast, and scalable state-management solution.
+*   **UnoCSS:** An instant on-demand atomic CSS engine.
+
+## Getting Started
+
+### Prerequisites
+
+*   [Node.js](https://nodejs.org/en/) (v18 or higher)
+*   [pnpm](https://pnpm.io/)
+
+### Installation
+
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/your-username/macOS-portfolio2.git
+    ```
+2.  Navigate to the project directory:
+    ```bash
+    cd macOS-portfolio2
+    ```
+3.  Install the dependencies:
+    ```bash
+    pnpm install
+    ```
+
+### Development
+
+To start the development server with hot reloading, run the following command:
 
 ```bash
 pnpm dev
 ```
 
-Build for production with minification to the `dist` folder:
+### Build
+
+To build the project for production, run the following command:
 
 ```bash
 pnpm build
 ```
 
-
-&nbsp;
-
-## Changelog
-
-- **Update 2023.06.26**: Improve [FaceTime](https://support.apple.com/en-us/HT208176).
-
-- **Update 2023.06.25**: Add [Typora](https://typora.io/), built on top of [Milkdown](https://milkdown.dev/).
-
-- **Update 2021.12.05**: Simulated the device's actual battery state using [Battery API](https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API), displaying 100% charge on [unsupported browsers](https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API#browser_compatibility).
-
-- **Update 2021.12.05**: Refactored for cleaner code by utilizing functional components and hooks. Refer to [this branch](https://github.com/Renovamen/playground-macos/tree/class-component) for the previous version implemented with class components.
-
-
-&nbsp;
+This will create a `dist` folder with the optimized and minified files.
 
 ## Credits
 
-- macOS
-  - [Monterey](https://www.apple.com/macos/monterey/)
-  - [Catalina](https://www.apple.com/bw/macos/catalina/)
-- [macOS Icon Gallery](https://www.macosicongallery.com/)
-- [sindresorhus/file-icon-cli](https://github.com/sindresorhus/file-icon-cli)
-- [vivek9patel.github.io](https://github.com/vivek9patel/vivek9patel.github.io)
+This project is based on the work of [Xiaoha Zou (@Renovamen)](https://github.com/Renovamen).
 
-
-&nbsp;
+*   **Original Project:** [playground-macos](https://github.com/Renovamen/playground-macos)
+*   **macOS Icons:** [macOS Icon Gallery](https://www.macosicongallery.com/)
+*   **File Icons:** [sindresorhus/file-icon-cli](https://github.com/sindresorhus/file-icon-cli)
 
 ## License
 
-[MIT](MIT)
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
